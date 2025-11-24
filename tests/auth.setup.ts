@@ -6,7 +6,6 @@ const authFile = path.join(__dirname, '../playwright/.auth/user.json');
 
 setup('authenticate', async ({ page }) => {
   const response = await page.goto('https://www.vtmgo.be/vtmgo'); //Specifically referring to this page for login flow
-  console.log('Initial navigation status:', response?.status());
   await page.waitForTimeout(3000);
   await page.click('#pg-accept-btn'); //Accept cookies
   await page.waitForTimeout(3000);

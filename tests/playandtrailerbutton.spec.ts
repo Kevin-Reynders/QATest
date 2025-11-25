@@ -9,10 +9,10 @@ const inTheLostLands = "https://www.vtmgo.be/vtmgo/in-the-lost-lands~83d4f32e-6a
 const inTheLostLandsTrailer = "https://www.vtmgo.be/vtmgo/afspelen/20f1d3f0-af75-43d8-9cec-e912f0f5a226";
 
 test.beforeEach(async ({ page }) => {
-  // Assuming authentication is required for these tests
-  await page.goto('https://www.vtmgo.be/vtmgo');
-  await acceptCookiesIfPresent(page);
-  await page.waitForURL('https://www.vtmgo.be/vtmgo'); //Added a waitForURL so the page has processed the acceptance of cookies before tests
+    // Assuming authentication is required for these tests
+    await page.goto('https://www.vtmgo.be/vtmgo');
+    await acceptCookiesIfPresent(page);
+    await page.waitForURL('https://www.vtmgo.be/vtmgo'); //Added a waitForURL so the page has processed the acceptance of cookies before tests
 });
 
 test('Check if play button is visible and trailer button invisible for Linkeroever', async ({ page }) => {

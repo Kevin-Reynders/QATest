@@ -21,7 +21,6 @@ test('Logging in on VTM GO', async ({ page }) => {
   // Verify login was successful
   await expect(page.locator(mainPage.userDropdown)).toBeVisible();
   // Continue with further checks as needed
-  
 });
 
 test('Logging out on VTM GO', async ({ page }) => {

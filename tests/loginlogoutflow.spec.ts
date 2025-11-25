@@ -17,7 +17,10 @@ test('Logging in on VTM GO', async ({ page }) => {
   await page.waitForTimeout(5000);
   await page.fill(loginPage.password, 'Testingskills!1'); //Fill in password
   await page.locator(loginPage.submitButton).click(); //Click Log in ->
+  // Verify login was successful
+  await expect(page.locator(mainPage.userDropdown)).toBeVisible();
   // Continue with further checks as needed
+  
 });
 
 test('Logging out on VTM GO', async ({ page }) => {

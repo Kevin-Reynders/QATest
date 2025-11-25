@@ -1,5 +1,6 @@
 import { test as setup, expect } from '@playwright/test';
 import path from 'path';
+import { acceptCookiesIfPresent } from '../fixtures/mainFixture';
 
 const authFile = path.join(__dirname, '../playwright/.auth/user.json');
 
@@ -7,7 +8,7 @@ const authFile = path.join(__dirname, '../playwright/.auth/user.json');
 setup('authenticate', async ({ page }) => {
   const response = await page.goto('https://www.vtmgo.be/vtmgo'); //Specifically referring to this page for login flow
   await page.waitForTimeout(3000);
-  await page.click('#pg-accept-btn'); //Accept cookies
+  await acceptCookiesIfPresent(page);
   await page.waitForTimeout(3000);
   await page.click('text=Inloggen'); //Click login button
   await page.waitForTimeout(3000);

@@ -1,4 +1,4 @@
-import {expect, Page } from '@playwright/test';
+import { expect, Page } from '@playwright/test';
 import { mainPage } from '../pageElements/mainPage';
 
 export async function acceptCookiesIfPresent(page: Page) {

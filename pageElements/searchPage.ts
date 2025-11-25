@@ -7,6 +7,5 @@ export const searchPage = {
     individualItem: '.search__item',
     individualItemTitle: '.teaser__title',
     individualItemDescription: '.teaser__meta',
-
     noResultsMessage: '.search__results-msg'
 }

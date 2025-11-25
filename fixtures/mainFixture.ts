@@ -3,6 +3,7 @@ import { mainPage } from '../pageElements/mainPage';
 
 export async function acceptCookiesIfPresent(page: Page) {
     try {
+        await page.waitForSelector(mainPage.cookiesBanner, { timeout: 3000 }).catch(() => null);
         await page.click(mainPage.cookiesAcceptButton, { timeout: 3000 });
     } catch (e) {
         // If cookies are not found, continue

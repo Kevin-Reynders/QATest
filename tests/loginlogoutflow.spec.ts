@@ -4,12 +4,13 @@ import { mainPage } from '../pageElements/mainPage';
 import { acceptCookiesIfPresent } from '../fixtures/mainFixture';
 
 test.beforeEach(async ({ page }) => {
-  await page.goto('https://www.vtmgo.be');
+  await page.goto('https://www.vtmgo.be/vtmgo');
   await acceptCookiesIfPresent(page);
+  await page.waitForURL('https://www.vtmgo.be/vtmgo');
 });
 
 test('Logging in on VTM GO', async ({ page }) => {
-  await page.goto('https://www.vtmgo.be');
+  await page.goto('https://www.vtmgo.be/vtmgo');
   await page.click(mainPage.loginButton); //Click login button
   await page.waitForTimeout(5000); //Hardcoded a wait at the moment for loading, replacing later with proper check
   await page.fill(loginPage.username, 'reynderskev@gmail.com'); //Fill in email

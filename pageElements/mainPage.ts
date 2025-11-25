@@ -7,4 +7,5 @@ export const mainPage = {
     logoutButton: '//*[@id="tertiaryNavUserMenu"]/div[2]/ul/li[3]/a',
     logoutConfirmButton: '[data-testid="logout-popup-logout"]',
     submitButton: '[type=submit]',
+    searchIcon: 'body > header > div:nth-child(4) > nav > ul > li > a > span.btn__icon > svg'
 }

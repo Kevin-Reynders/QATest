@@ -34,7 +34,7 @@ test('Check if play and trailer button is visible for One Shot', async ({ page }
     expect(page.url()).toBe(oneShotTrailer); Checking if the trailer links to a valid page*/
 });
 
-test('Check if play and trailer button is visible for In The Lost Lands', async ({ page }) => {
+test('Check if play and trailer button is visible for In the Lost Lands', async ({ page }) => {
     await page.goto(inTheLostLands);
     await page.waitForURL(inTheLostLands);
     expect(page.locator(programPage.title)).toHaveText('In the Lost Lands'); //Checking on the hidden title if we're actually on the right page

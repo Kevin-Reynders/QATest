@@ -1,6 +1,4 @@
 import { test, expect } from '@playwright/test';
-
-
 import { searchPage } from '../pageElements/searchPage';
 import { mainPage } from '../pageElements/mainPage';
 import { acceptCookiesIfPresent } from '../fixtures/mainFixture';
@@ -21,7 +19,7 @@ test('Search for Familie and verify', async ({ page }) => {
 });
 
 test('Search for a non-existent program and verify there are no results', async ({ page }) => {
-    await page.click(mainPage.searchIcon);
+    await page.click(mainPage.searchIcon); //Different way to open search
     await search(page, 'ThisIsNonsense');
     var noResultsMessage = page.locator(searchPage.noResultsMessage);
     await expect(noResultsMessage).toBeVisible(); // Verify that the no results message is displayed
@@ -30,7 +28,6 @@ test('Search for a non-existent program and verify there are no results', async 
 
 test('Search with empty searchbar should reload the page', async ({ page }) => {
     await page.goto('https://www.vtmgo.be/vtmgo/zoeken');
-    await page.click(mainPage.searchIcon);
     await search(page, '');
     await expect(page).toHaveURL('https://www.vtmgo.be/vtmgo/zoeken'); // Verify that the URL is still the search page URL
     await expect(page.locator(searchPage.searchInput)).toBeEmpty(); 

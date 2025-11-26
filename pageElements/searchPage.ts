@@ -1,6 +1,5 @@
 export const searchPage = {
     searchInput: '#searchQuery',
-    //*[@id="searchQuery"]
     searchResults: '.search__results-inner',
     searchResultsTitle: '.search__results-title',
     searchResultItems: '.search__results',

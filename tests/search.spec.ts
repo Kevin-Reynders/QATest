@@ -25,7 +25,7 @@ test('Search for Familie and verify', async ({ page }) => {
 test('Search for a non-existent program and verify there are no results', async ({ page }) => {
     await page.click(mainPage.searchIcon);
     await page.click(searchPage.searchInput);  // Click on the search button to open the search input
-    await page.fill(searchPage.searchInput, 'NonExistentProgramXYZ'); // Enter a non-existent program name
+    await page.fill(searchPage.searchInput, 'ThisIsNonsense'); // Enter a non-existent program name
     await page.press(searchPage.searchInput, 'Enter'); // Submit the search
     await page.waitForTimeout(2000); // Wait for results to load
     const noResultsMessage = page.locator(searchPage.noResultsMessage);

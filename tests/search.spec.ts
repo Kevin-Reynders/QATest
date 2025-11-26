@@ -30,5 +30,5 @@ test('Search with empty searchbar should reload the page', async ({ page }) => {
     await page.goto('https://www.vtmgo.be/vtmgo/zoeken');
     await search(page, '');
     await expect(page).toHaveURL('https://www.vtmgo.be/vtmgo/zoeken'); // Verify that the URL is still the search page URL
-    await expect(page.locator(searchPage.searchInput)).toBeEmpty(); 
+    await expect(page.locator(searchPage.searchInput)).toBeEmpty();
 });

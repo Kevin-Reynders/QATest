@@ -16,6 +16,10 @@ test('Search for Familie and verify', async ({ page }) => {
     var results = await page.locator(searchPage.individualItem).count();
     expect(results).toBeGreaterThan(0); // Expect at least one result
     await expect(page.locator(searchPage.individualItem).first()).toContainText('Familie'); // Verify the first result contains the program name
+    await test.info().attach('screenshot', {
+        body: await page.screenshot(),
+        contentType: 'image/png',
+    }); //Making a screenshot for proof and adding it to report
 });
 
 test('Search for a non-existent program and verify there are no results', async ({ page }) => {
@@ -24,6 +28,10 @@ test('Search for a non-existent program and verify there are no results', async 
     var noResultsMessage = page.locator(searchPage.noResultsMessage);
     await expect(noResultsMessage).toBeVisible(); // Verify that the no results message is displayed
     await expect(noResultsMessage).toHaveText('Er zijn geen resultaten voor deze zoekopdracht'); // Verify the message text
+    await test.info().attach('screenshot', {
+        body: await page.screenshot(),
+        contentType: 'image/png',
+    }); //Making a screenshot for proof and adding it to report
 });
 
 test('Search with empty searchbar should reload the page', async ({ page }) => {
@@ -31,4 +39,8 @@ test('Search with empty searchbar should reload the page', async ({ page }) => {
     await search(page, '');
     await expect(page).toHaveURL('https://www.vtmgo.be/vtmgo/zoeken'); // Verify that the URL is still the search page URL
     await expect(page.locator(searchPage.searchInput)).toBeEmpty();
+    await test.info().attach('screenshot', {
+        body: await page.screenshot(),
+        contentType: 'image/png',
+    }); //Making a screenshot for proof and adding it to report
 });
